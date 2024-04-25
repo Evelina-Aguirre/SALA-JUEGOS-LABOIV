@@ -1,0 +1,41 @@
+
+<!---h2>Iniciar Sesión</h2>
+<form (ngSubmit)="iniciarSesion()">
+  <label for="usuario">Usuario:</label>
+  <input type="text" id="usuario" name="usuario" [(ngModel)]="usuario" required>
+
+  <label for="contrasena">Contraseña:</label>
+  <input type="password" id="contrasena" name="contrasena" [(ngModel)]="contrasenia" required>
+
+  <button type="submit">Iniciar Sesión</button>
+</form-->
+<head>
+    <link rel="stylesheet" type="text/css" href="login.component.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    
+
+<div class="login">
+  <div class="login-header">
+    <h1>SALA DE JUEGOS</h1>
+  </div>
+  <div class="login-form">
+    <h3>Username:</h3>
+    <input type="text" placeholder="Username" [(ngModel)]="usuario" required/><br>
+    <h3>Password:</h3>
+    <input type="password" placeholder="Password" [(ngModel)]="contrasenia" required/>
+    <br>
+    <input type="button" value="Login" class="login-button" (click)="iniciarSesion()"/>
+    <br>
+    <a class="sign-up">Sign Up!</a>
+    <br>
+    <h6 class="no-access">No podés ingresar a tu cuenta?</h6>
+  </div>
+</div>
+<div class="error-page">
+  <!--div class="try-again">Error</div-->
+</div>
+
+</body>
