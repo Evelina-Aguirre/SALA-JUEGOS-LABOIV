@@ -23,11 +23,11 @@
   </div>
   <div class="login-form">
     <h3>Username:</h3>
-    <input type="text" placeholder="Username" [(ngModel)]="usuario" required/><br>
+    <input type="text" placeholder="Username" [(ngModel)]="userMail" required/><br>
     <h3>Password:</h3>
-    <input type="password" placeholder="Password" [(ngModel)]="contrasenia" required/>
+    <input type="password" placeholder="Password" [(ngModel)]="userPWD" required/>
     <br>
-    <input type="button" value="Login" class="login-button" (click)="iniciarSesion()"/>
+    <input type="button" value="Login" class="login-button" (click)="Login()"/>
     <br>
     <a class="sign-up">Sign Up!</a>
     <br>

@@ -3,8 +3,6 @@ import { provideRouter } from '@angular/router';
 import {provideAuth,getAuth} from '@angular/fire/auth';
 import {provideFirebaseApp, initializeApp} from '@angular/fire/app';
 
-
-
 import { routes } from './app.routes';
 
 const firebaseConfig = {
