@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
-import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule,MatSnackBarVerticalPosition  } from '@angular/material/snack-bar';
+import { User } from 'firebase/auth';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +15,15 @@ import { MatSnackBar, MatSnackBarModule,MatSnackBarVerticalPosition  } from '@an
 })
 export class LoginComponent implements OnInit {
 
-  errorMSJ : string = "";
   userMail: string = "";
   userPWD: string = "";
-  userLogueado: string = "";
+  userLogueado: string ="";
 
-  constructor(private router: Router,public auth: Auth,private _snackBar: MatSnackBar) {}
+  constructor(private router: Router,public auth: Auth,private _snackBar: MatSnackBar) {
+    /*if (this.auth.currentUser !== null) {
+      if ('email' in this.auth.currentUser) {
+        this.userLogueado = this.auth.currentUser.email;}}*/
+  }
   
   ngOnInit(): void {
     
@@ -29,11 +32,10 @@ export class LoginComponent implements OnInit {
   Login() {
     signInWithEmailAndPassword(this.auth, this.userMail, this.userPWD).then((res) => {
       if (res.user.email !== null) {
-
         this.userLogueado = res.user.email; 
         this.router.navigate(['./home']);
+        alert(this.userLogueado);
       } else {
-        console.log('te tendria que estar mostrando');
         this.mostrarError('ERROR DE AUTENTICACIÓN');
       }
     }).catch((e) => {
@@ -53,13 +55,6 @@ export class LoginComponent implements OnInit {
     console.log(this.userLogueado);
     this.userMail = 'a@gmail.com';
     this.userPWD = '1111111';
-  }
-
-
-  CloseSession(){
-    signOut(this.auth).then(() => {
-      console.log(this.auth.currentUser?.email)
-    })
   }
   
 }

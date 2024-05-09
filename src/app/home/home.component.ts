@@ -1,17 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { AuthService } from '../services/auth.service';
+import { User } from 'firebase/auth';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+  usuarioLogueado: string| null = null;
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private authService: AuthService){}
+  ngOnInit(): void {
+    this.authService.getCurrentUser().subscribe(user => {
+      if(user)
+        {
+          this.usuarioLogueado = user?.email;
+          alert(this.usuarioLogueado);
+        }
+      else {
+        this.usuarioLogueado = null; 
+      }
+    });
+  }
 
+  logout(): void {
+    this.authService.logout().then(() => {
+      this.router.navigate(['/login']);
+    }).catch(error => {
+      console.error('Error al cerrar sesión:', error);
+    });
+  }
   irAQuienSoy() {
     this.router.navigate(['/quien-soy']);
   }

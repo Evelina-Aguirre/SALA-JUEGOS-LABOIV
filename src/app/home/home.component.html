@@ -1,4 +1,9 @@
 <body>
 <p>home works!</p>
 <button (click)="irAQuienSoy()">¿Quién Soy?</button>
+<div *ngIf="usuarioLogueado">
+</div>
+<p>Bienvenido, {{ usuarioLogueado }}</p>
+<button (click)="logout()">Cerrar sesión</button>
+
 </body>
