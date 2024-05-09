@@ -5,6 +5,8 @@ import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar, MatSnackBarModule,MatSnackBarVerticalPosition  } from '@angular/material/snack-bar';
 import { User } from 'firebase/auth';
+import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-login',
@@ -19,22 +21,27 @@ export class LoginComponent implements OnInit {
   userPWD: string = "";
   userLogueado: string ="";
 
-  constructor(private router: Router,public auth: Auth,private _snackBar: MatSnackBar) {
-    /*if (this.auth.currentUser !== null) {
-      if ('email' in this.auth.currentUser) {
-        this.userLogueado = this.auth.currentUser.email;}}*/
+  constructor(private router: Router,public auth: Auth,private _snackBar: MatSnackBar,private firestore: Firestore) {
+ 
   }
   
   ngOnInit(): void {
     
   }
 
+  registreLog(){
+let col = collection(this.firestore, 'logins');
+console.log(col);
+addDoc(col, { fecha: new Date(), "user": this.userMail});
+  }
+
   Login() {
+    
     signInWithEmailAndPassword(this.auth, this.userMail, this.userPWD).then((res) => {
       if (res.user.email !== null) {
+        this.registreLog():
         this.userLogueado = res.user.email; 
         this.router.navigate(['./home']);
-        alert(this.userLogueado);
       } else {
         this.mostrarError('ERROR DE AUTENTICACIÓN');
       }
