@@ -2,7 +2,8 @@
 
 body {
     /*background-image:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');*/
-    background-image:url("../../assets/images/ajedrez.jpg");
+/*  background-image:url("../../assets/images/ajedrez.jpg");*/
+background-image:url("../../assets/images/f4.jpg");
     margin:0px;
     font-family: 'Ubuntu', sans-serif;
     background-size: 100% 100%;
@@ -10,18 +11,21 @@ body {
   width: 100%;
   }
   img {
-    width: 500px; /* ajusta el tamaño según tus necesidades */
-    float: left; /* alinea la imagen a la izquierda */
+    width: 500px; 
+    float: left; 
   padding-top: 5%;
   padding-left: 6%;
   }
+
   h1, h2, h3, h4, h5, h6, a {
     margin:0; padding:0;
   }
+  
   .login {
     margin:0 auto;
     max-width:500px;
   }
+
   .login-header h1{
     padding-top:100px;
     color:#fff;

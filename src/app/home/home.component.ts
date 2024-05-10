@@ -4,11 +4,12 @@ import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { AuthService } from '../services/auth.service';
 import { User } from 'firebase/auth';
 import { CommonModule } from '@angular/common';
+import { JuegosComponent } from './juegos/juegos.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,JuegosComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -21,7 +22,6 @@ export class HomeComponent implements OnInit{
       if(user)
         {
           this.usuarioLogueado = user?.email;
-          alert(this.usuarioLogueado);
         }
       else {
         this.usuarioLogueado = null; 

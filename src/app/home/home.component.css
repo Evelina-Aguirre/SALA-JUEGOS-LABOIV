@@ -1,9 +1,83 @@
 body {
-  background-image:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');
-  /*background-image:url("../../assets/images/ajedrez.jpg");*/
-  margin:0px;
+  /*background-image:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');*/
+  /*background-image: url("../../assets/images/ajedrez.jpg");*/
+  background-image: url("../../assets/images/f4.jpg");
+  
+  margin: 0px;
   font-family: 'Ubuntu', sans-serif;
   background-size: 100% 100%;
   height: 100vh;
-width: 100%;
+  width: 100%;
+}
+
+.logout-button
+
+/*.quiensoy-button*/
+  {
+  background-color: #061855;
+  /* Color de fondo */
+  border: none;
+  /* Sin borde */
+  color: white;
+  /* Color del texto */
+  padding: 15px 32px;
+  /* Espacio alrededor del texto */
+  text-align: center;
+  /* Alineación del texto */
+  text-decoration: none;
+  /* Sin subrayado */
+  display: inline-block;
+  /* Mostrar como un bloque */
+  font-size: 16px;
+  /* Tamaño de fuente */
+  margin: 6px 5px;
+  /* Margen alrededor del botón */
+  cursor: pointer;
+  /* Cursor al pasar el ratón */
+  border-radius: 10px;
+  /* Radio de borde */
+  order: 2;
+
+}
+
+.quiensoy-button {
+  /*margin-left: auto; */
+  border: .5px solid #fff;
+  background: #844fff75;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000;
+  color: white;
+  padding: 100px 50px;
+  margin: 100px 0 0 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.juegos-container {
+  margin: 100px 0 0 100px;
+  padding: 0px;
+  border-radius: 10px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  background-color: #4a126e73;
+}
+
+.welcome-text {
+  margin-left: 10px;
+  order: 1;
+  color: rgb(255, 255, 255);
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

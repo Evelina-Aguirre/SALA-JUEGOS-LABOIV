@@ -11,6 +11,7 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
 const firebaseConfig = {
   apiKey: "AIzaSyDkhDklt80JWW8R8-O3iVMTXZhl-LQTP9M",
   authDomain: "sala-de-juegos-laboiv-a8803.firebaseapp.com",
+  databaseURL: "https://sala-de-juegos-laboiv-a8803-default-rtdb.firebaseio.com",
   projectId: "sala-de-juegos-laboiv-a8803",
   storageBucket: "sala-de-juegos-laboiv-a8803.appspot.com",
   messagingSenderId: "180597478060",
@@ -24,6 +25,7 @@ export const appConfig: ApplicationConfig = {
   provideAuth(()=>getAuth())]), provideAnimationsAsync(),
   importProvidersFrom(provideFirestore(() => getFirestore())), 
   importProvidersFrom(provideDatabase(() => getDatabase()))
+  
 ]
 
 };

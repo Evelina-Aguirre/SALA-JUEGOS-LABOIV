@@ -1,0 +1,17 @@
+.juegos-button {
+  border:.5px solid #fff;
+  background:#844fff75;
+  border-radius:10px;
+  box-shadow:0px 0px 10px #000;
+    color: white; /* Color del texto */
+    padding: 100px 100px; /* Espacio alrededor del texto */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar como un bloque */
+    font-size: 30px; /* Tamaño de fuente */
+    cursor: pointer; 
+   
+
+  }
+  
+  

@@ -1,9 +1,13 @@
 <body>
-<p>home works!</p>
-<button (click)="irAQuienSoy()">¿Quién Soy?</button>
-<div *ngIf="usuarioLogueado">
-</div>
-<p>Bienvenido, {{ usuarioLogueado }}</p>
-<button (click)="logout()">Cerrar sesión</button>
-
-</body>
+    <nav class="navbar">
+      <p class="welcome-text">Bienvenido, {{ usuarioLogueado }}</p>
+      <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+    </nav>
+    <div class="container">
+        <button class="quiensoy-button" (click)="irAQuienSoy()">¿Quién Soy?</button>
+      <div class="juegos-container">
+        <app-juegos></app-juegos>
+      </div>
+    </div>
+ 
+  </body>

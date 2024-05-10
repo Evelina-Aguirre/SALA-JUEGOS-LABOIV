@@ -39,7 +39,7 @@ addDoc(col, { fecha: new Date(), "user": this.userMail});
     
     signInWithEmailAndPassword(this.auth, this.userMail, this.userPWD).then((res) => {
       if (res.user.email !== null) {
-        this.registreLog():
+        this.registreLog();
         this.userLogueado = res.user.email; 
         this.router.navigate(['./home']);
       } else {
