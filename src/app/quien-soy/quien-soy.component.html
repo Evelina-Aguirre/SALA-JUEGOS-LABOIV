@@ -7,26 +7,33 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container d-flex" id="carta">
-    <div class="card">
-      <h1 class="titulo">Quien soy</h1>
-      <img src="../../assets/images/foto.jpg" id="foto" class="card-img-top" alt="Foto">
-      <div class="card-body">
-        <h5 class="card-title">Evelina Aguirre</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in nisi eleifend, condimentum velit nec, accumsan turpis.</p>
-        <a href="#" class="btn btn-primary">Volver</a>
-      </div>
-    </div>
 
-    <div class="juego">
-      <div class="otra-card">
-      <h1>Descripción del Juego:</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem delectus, nemo deserunt esse 
-        commodi aperiam cum aliquid. Pariatur est, placeat saepe facere id, recusandae ex tempora ratione, 
-        eaque aspernatur totam.
-      </p>
-    </div>
+    <nav class="navbar">
+      <p class="welcome-text">Bienvenido, {{ usuarioLogueado }}</p>
+      <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+    </nav>
+    
+    
+    <div class="container d-flex" id="carta">
+      <div class="card">
+        <h1 class="titulo">Quien soy</h1>
+        <img src="../../assets/images/foto.jpg" id="foto" class="card-img-top" alt="Foto">
+        <div class="card-body">
+          <h5 class="card-title">Evelina Aguirre</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in nisi eleifend, condimentum velit nec, accumsan turpis.</p>
+        </div>
+      </div>
+      
+      <div class="juego">
+        <div class="otra-card">
+          <h1>Descripción del Juego:</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem delectus, nemo deserunt esse 
+            commodi aperiam cum aliquid. Pariatur est, placeat saepe facere id, recusandae ex tempora ratione, 
+            eaque aspernatur totam.
+          </p>
+        </div>
+        <button class="atras-button " (click)="atras()">Atrás</button>
   </div>
   </div>
 

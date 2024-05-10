@@ -2,7 +2,6 @@ body {
   /*background-image:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');*/
   /*background-image: url("../../assets/images/ajedrez.jpg");*/
   background-image: url("../../assets/images/f4.jpg");
-  
   margin: 0px;
   font-family: 'Ubuntu', sans-serif;
   background-size: 100% 100%;
@@ -11,33 +10,19 @@ body {
 }
 
 .logout-button
-
-/*.quiensoy-button*/
   {
   background-color: #061855;
-  /* Color de fondo */
   border: none;
-  /* Sin borde */
   color: white;
-  /* Color del texto */
   padding: 15px 32px;
-  /* Espacio alrededor del texto */
   text-align: center;
-  /* Alineación del texto */
   text-decoration: none;
-  /* Sin subrayado */
   display: inline-block;
-  /* Mostrar como un bloque */
   font-size: 16px;
-  /* Tamaño de fuente */
   margin: 6px 5px;
-  /* Margen alrededor del botón */
   cursor: pointer;
-  /* Cursor al pasar el ratón */
   border-radius: 10px;
-  /* Radio de borde */
   order: 2;
-
 }
 
 .quiensoy-button {
@@ -70,9 +55,11 @@ body {
 }
 
 .welcome-text {
+  margin-top: 10px;
   margin-left: 10px;
   order: 1;
   color: rgb(255, 255, 255);
+  font-size: 16px;
 }
 
 .container {
