@@ -27,7 +27,7 @@ background-image:url("../../assets/images/f4.jpg");
   }
 
   .login-header h1{
-    padding-top:100px;
+    padding-top:50px;
     color:#fff;
     text-align:center;
     font-size:350%;
@@ -113,3 +113,15 @@ background-image:url("../../assets/images/f4.jpg");
     align-items: center;
     color: #E86850;
   }
+
+  .registro {
+    color: rgba(255, 255, 255, 0.918);
+    text-align: left; 
+    font-size: 10px;
+  }
+  
+  .registro:hover {
+      color: #ffffff; 
+  }
+
+

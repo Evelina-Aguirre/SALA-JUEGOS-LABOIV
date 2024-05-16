@@ -5,7 +5,7 @@ import { AuthService } from '../services/auth.service';
 import { User } from 'firebase/auth';
 import { CommonModule } from '@angular/common';
 import { JuegosComponent } from './juegos/juegos.component';
-
+import { ChatComponent } from './chat/chat.component';
 @Component({
   selector: 'app-home',
   standalone: true,

@@ -1,0 +1,15 @@
+
+    <body>
+        <div class="login">
+            <div class="login-header">
+                <h1>Registro</h1>
+            </div>
+            <div class="login-form registro">
+                <input type="text" placeholder="Correo electrónico" [(ngModel)]="nuevoUsuarioMail" required/>
+                <br>
+                <input type="password" placeholder="Contraseña" [(ngModel)]="nuevoUsuarioPDW" required/>
+                <br>
+                <button class='registro-button' (click)="Registrar()">Registrarse</button>
+            </div>
+        </div>
+    </body>
