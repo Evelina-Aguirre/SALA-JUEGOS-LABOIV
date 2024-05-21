@@ -35,7 +35,8 @@ logout(): void {
     console.error('Error al cerrar sesión:', error);
   });
 }
+
 getButtonText(): string {
-  return this.usuarioLogueado ? 'Cerrar Sesión' : 'Volver al inicio';
+  return this.usuarioLogueado ? 'Cerrar sesión' : 'Volver al inicio';
 }
 }
