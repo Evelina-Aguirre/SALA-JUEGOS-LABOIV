@@ -6,10 +6,11 @@ import { User } from 'firebase/auth';
 import { CommonModule } from '@angular/common';
 import { JuegosComponent } from './juegos/juegos.component';
 import { ChatComponent } from './chat/chat.component';
+import { NavbarComponent } from './navbar/navbar.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,JuegosComponent],
+  imports: [CommonModule,JuegosComponent,ChatComponent,NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

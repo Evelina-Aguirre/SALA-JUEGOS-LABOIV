@@ -1,15 +1,14 @@
 <body>
-    <nav class="navbar">
-      <p class="welcome-text">Bienvenido, {{ usuarioLogueado }}</p>
-      <button class="logout-button" (click)="logout()">Cerrar sesión</button>
-    </nav>
+  <app-navbar></app-navbar>
     <div class="container">
+      <div>
         <button class="quiensoy-button" (click)="irAQuienSoy()">¿Quién Soy?</button>
-      <div class="juegos-container">
-        <app-juegos></app-juegos>
       </div>
-      <div class="chat-container">
+      <div>
         <app-chat></app-chat>
+      </div>
+      <div>
+        <app-juegos></app-juegos>
       </div>
     </div>
 

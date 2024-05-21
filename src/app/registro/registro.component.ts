@@ -4,11 +4,12 @@ import { Auth, createUserWithEmailAndPassword } from "@angular/fire/auth";
 import { FirebaseAppModule } from '@angular/fire/app';
 import { MatSnackBar, MatSnackBarModule, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NavbarComponent } from '../home/navbar/navbar.component';
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [FormsModule,FirebaseAppModule],
+  imports: [FormsModule,FirebaseAppModule,NavbarComponent],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })

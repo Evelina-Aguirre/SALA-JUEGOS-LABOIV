@@ -32,20 +32,22 @@ body {
   border-radius: 10px;
   box-shadow: 0px 0px 10px #000;
   color: white;
-  padding: 100px 50px;
+  padding: 100px 60px;
   margin: 100px 0 0 100px;
+  margin-left: auto;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 30px;
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+.quiensoy-button:hover {
+  box-shadow: 0px 0px 20px #000; 
 }
 
-.juegos-container {
-  margin: 100px 0 0 100px;
-  padding: 0px;
-  border-radius: 10px;
-}
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
