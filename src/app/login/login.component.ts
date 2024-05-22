@@ -50,8 +50,16 @@ export class LoginComponent implements OnInit {
         this.mostrarError('ERROR DE AUTENTICACIÓN');
       }
     }).catch((e) => {
+      if (e.code === 'auth/invalid-email') {
+        this.mostrarError('Error, ingresa email.');
+
+      } else if (e.code === 'auth/missing-password') {
+        this.mostrarError('Debes completar ambos campos.');
+        
+      } else if ('auth/weak-password') {
+        this.mostrarError('La contraseña debe contener al menos 6 carácteres.');
+      }
       console.error('Error de autenticación:', e);
-      this.mostrarError('ERROR DE AUTENTICACIÓN');
     });
   }
   mostrarError(mensaje: string) {

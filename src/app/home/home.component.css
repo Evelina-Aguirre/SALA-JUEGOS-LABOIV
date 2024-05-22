@@ -10,30 +10,41 @@ body {
 }
 
 
-.quiensoy-button {
-  /*margin-left: auto; */
+.quiensoy-button, .chat-button, .juegos-button {
   border: .5px solid #fff;
   background: #844fff75;
   border-radius: 10px;
   box-shadow: 0px 0px 10px #000;
   color: white;
-  padding: 100px 60px;
+  padding: 100px 120px;
   margin: 100px 0 0 100px;
-  margin-left: auto;
-  text-align: center;
+  text-align:center;
+  white-space: nowrap; 
   text-decoration: none;
   display: inline-block;
+  width: 350px; 
+  height: 250px; 
   font-size: 30px;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
-}
-.quiensoy-button:hover {
-  box-shadow: 0px 0px 20px #000; 
-}
-
-.container {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.quiensoy-button:hover, .chat-button:hover, .juegos-button:hover{
+  box-shadow: 0px 0px 30px #000; 
+}
+
+.quiensoy-button {
+  white-space: nowrap;
+  line-height: 50px; 
+}
+
+
+
+.container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 50vh;
 }

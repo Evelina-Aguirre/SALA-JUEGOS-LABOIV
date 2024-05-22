@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit{
       console.error('Error al cerrar sesión:', error);
     });
   }
-  irAQuienSoy() {
-    this.router.navigate(['/quien-soy']);
+  navegar(ruta:string) {
+    this.router.navigate([ruta]);
   }
 }

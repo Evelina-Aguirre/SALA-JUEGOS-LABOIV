@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-
+import { NavbarComponent } from '../home/navbar/navbar.component';
 @Component({
   selector: 'app-quien-soy',
   standalone: true,
-  imports: [],
+  imports: [NavbarComponent],
   templateUrl: './quien-soy.component.html',
   styleUrl: './quien-soy.component.css'
 })

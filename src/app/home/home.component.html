@@ -1,16 +1,8 @@
 <body>
   <app-navbar></app-navbar>
-    <div class="container">
-      <div>
-        <button class="quiensoy-button" (click)="irAQuienSoy()">¿Quién Soy?</button>
-      </div>
-      <div>
-        <app-chat></app-chat>
-      </div>
-      <div>
-        <app-juegos></app-juegos>
-      </div>
-    </div>
-
-
-  </body>
+  <div class="container">
+    <button class="quiensoy-button" (click)="navegar('/quien-soy')">¿Quién Soy?</button>
+    <button class="chat-button" (click)="navegar('/chat')">Chat</button>
+    <button class="juegos-button" (click)="navegar('/juegos')">Juegos</button>
+  </div>
+</body>
