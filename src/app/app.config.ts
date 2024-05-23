@@ -48,9 +48,6 @@ export const appConfig: ApplicationConfig = {
   
 ]
 
-<<<<<<< HEAD
 
 };
-=======
-};
->>>>>>> f8759934fda30ca55a14ebe76ff150a310912d2b
+
