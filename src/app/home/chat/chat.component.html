@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <body>
     <app-navbar></app-navbar>
     <div class="chat-container">
@@ -16,5 +17,39 @@
             <button (click)="enviarMensaje()" class="button">Enviar</button>
         </div>
     </div>
+=======
+
+<body>
+    <app-navbar></app-navbar>
+<div class="container-fluid"></div>
+
+<h1>Chat</h1>
+<div class="chat-window"></div>
+<hr>
+<div class="chat"  id="app-chat"></div>
+<div>
+    <span class="badge badge-primary">{{usuarioLogueado}}</span>
+    <p>
+        Mensaje de chat
+    </p>
+    <button class="btn btn-primary">boton</button>
+    
+</div>
+<!--body>
+    <div class="container">
+        <div class="chat-container">
+          <div class="chat-messages">
+            <div *ngFor="let message of messages" class="message">
+              <span class="message-user">{{ message.user }}:</span>
+              <span class="message-text">{{ message.text }}</span>
+            </div>
+          </div>
+          <div class="chat-input">
+            <input type="text" [(ngModel)]="newMessage" placeholder="Type your message...">
+            <button (click)="sendMessage()" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </div-->
+>>>>>>> f8759934fda30ca55a14ebe76ff150a310912d2b
 
 </body>
