@@ -9,12 +9,22 @@ import { JuegosComponent } from './home/juegos/juegos.component';
 export const routes: Routes = [
 
     { path: '', redirectTo: '/Login', pathMatch: "full" },
-    { path: 'registro', component: RegistroComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'chat', component: ChatComponent},
-    { path: 'juegos', component: JuegosComponent},
-    { path: 'home', component: HomeComponent },
-    { path: 'quien-soy', component: QuienSoyComponent },
+    { path: 'registro',
+    loadComponent: () => import('./registro/registro.component').then(m => m.RegistroComponent) 
+    },
+    { path: 'login',
+    loadComponent: () => import('./login/login.component').then(m => m.LoginComponent) 
+    },
+    { path: 'chat', 
+    loadComponent: () => import('./home/chat/chat.component').then(m => m.ChatComponent) },
+    { path: 'juegos', 
+    loadComponent: () => import('./home/juegos/juegos.component').then(m => m.JuegosComponent) 
+    },
+    { path: 'home',
+    loadComponent: () => import('./home/home.component').then(m => m.HomeComponent) 
+    },
+    { path: 'quien-soy',
+    loadComponent: () => import('./quien-soy/quien-soy.component').then(m => m.QuienSoyComponent)  },
     { path: '**', redirectTo: '/login' }
 
 ];
