@@ -39,8 +39,6 @@ body {
 }
 
 .mensaje {
-  /* margin-bottom: 20px;
-  max-width: 70%; */
   display: flex;
   flex-direction: column;
   max-width: 70%;

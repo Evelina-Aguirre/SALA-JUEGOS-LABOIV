@@ -26,7 +26,7 @@ export class ChatComponent implements OnInit{
       this.mensajes = data;
     });
   }
-
+  
   ngOnInit(): void {
   this.authService.getCurrentUser().subscribe(user => {
       if(user)

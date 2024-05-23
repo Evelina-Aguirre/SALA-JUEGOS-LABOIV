@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ChatService {
 
   private mensajesCollection: AngularFirestoreCollection<any>;
