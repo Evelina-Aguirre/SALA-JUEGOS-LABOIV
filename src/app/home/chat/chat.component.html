@@ -1,15 +1,20 @@
-
 <body>
-<div class="container-principal"></div>
-<h1>Chat</h1>
-<div class="chat-window"></div>
-<hr>
-<div class="chat"  id="app-chat"></div>
-<div>
-    <span class="badge badge-primary">{{usuarioLogueado}}</span>
-    <p>
-        Mensaje de chat
-    </p>
-</div>
-<body>
+    <app-navbar></app-navbar>
+    <div class="chat-container">
+        <div class="mensajes-wrapper">
+            <div *ngFor="let mensaje of mensajes" class="mensaje"
+                [ngClass]="{'mensaje-propio': mensaje.user === usuarioLogueado, 'mensaje-otro': mensaje.user !== usuarioLogueado}">
+                <ng-container *ngIf="mensaje.user !== usuarioLogueado">
+                    <span class="user"> {{ mensaje.user }}:</span>
+                </ng-container>
+                <span class="text"> {{ mensaje.text }}</span>
+                <span class="timestamp"> {{ mensaje.timestamp | date:'dd/MM/yyyy HH:mm' }}</span>
+            </div>
+        </div>
+        <div class="input-container">
+            <input [(ngModel)]="nuevoMensaje" placeholder="Escribe un mensaje..." class="input" />
+            <button (click)="enviarMensaje()" class="button">Enviar</button>
+        </div>
+    </div>
 
+</body>

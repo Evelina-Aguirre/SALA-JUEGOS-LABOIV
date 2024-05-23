@@ -1,20 +1,92 @@
-.chat-button {
-  border: .5px solid #fff;
-  background: #844fff75;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px #000;
-  color: white;
-  padding: 100px 120px;
-  margin: 100px 0 0 100px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 30px;
+body {
+  /*background-image:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');*/
+  /*  background-image:url("../../assets/images/ajedrez.jpg");*/
+  background-image: url("../../../assets/images/f4.jpg");
+  margin: 0px;
+  font-family: 'Ubuntu', sans-serif;
+  background-size: 100% 100%;
+  height: 100vh;
+  width: 100%;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+
+}
+.mensajes-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 30px;
+  width: 800px; 
+  max-height: 800px;
+  overflow-y: auto;
+  background-color: #000000a1;
+  margin: 0 auto; 
+}
+
+.mensaje-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 100px;
+}
+
+.mensaje {
+  /* margin-bottom: 20px;
+  max-width: 70%; */
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 15px;
+
+}
+
+.mensaje-propio {
+  background-color: #51ff00;
+  color: #000000;
+  align-self: flex-end;
+}
+
+.mensaje-otro {
+  background-color: #081ccc;
+  color: #fff;
+  align-self: flex-start;
+}
+
+.user {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.input-container {
+  display: flex;
+  align-items:center;
+  padding: 5px;
+  margin-top: auto;
+  width: 50%;
+}
+
+.input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  border-radius: 20px;
 }
-
-.chat-button:hover {
-  box-shadow: 0px 0px 20px #000;
-}
-
