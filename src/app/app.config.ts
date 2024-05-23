@@ -29,4 +29,3 @@ export const appConfig: ApplicationConfig = {
 ]
 
 };
-//const app = initializeApp(firebaseConfig);

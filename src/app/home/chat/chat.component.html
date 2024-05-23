@@ -1,6 +1,8 @@
 
 <body>
-<div class="container-principal"></div>
+    <app-navbar></app-navbar>
+<div class="container-fluid"></div>
+
 <h1>Chat</h1>
 <div class="chat-window"></div>
 <hr>
@@ -10,6 +12,22 @@
     <p>
         Mensaje de chat
     </p>
+    <button class="btn btn-primary">boton</button>
+    
 </div>
-<body>
+<!--body>
+    <div class="container">
+        <div class="chat-container">
+          <div class="chat-messages">
+            <div *ngFor="let message of messages" class="message">
+              <span class="message-user">{{ message.user }}:</span>
+              <span class="message-text">{{ message.text }}</span>
+            </div>
+          </div>
+          <div class="chat-input">
+            <input type="text" [(ngModel)]="newMessage" placeholder="Type your message...">
+            <button (click)="sendMessage()" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </div-->
 
