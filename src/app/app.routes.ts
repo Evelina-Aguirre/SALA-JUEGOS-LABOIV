@@ -36,6 +36,18 @@ export const routes: Routes = [
         path: 'quien-soy',
         loadComponent: () => import('./quien-soy/quien-soy.component').then(m => m.QuienSoyComponent)
     },
-    { path: '**', redirectTo: '/login' }
+    { path: '**', redirectTo: '/login' },
+    {
+        path:'ahorcado',
+        loadComponent:() => import('./juegos/ahorcado/ahorcado.component').then(m=>m.AhorcadoComponent)
+    },
+    {
+        path:'mayormenor',
+        loadComponent:() => import('./juegos/mayormenor/mayormenor.component').then(m=>m.MayormenorComponent)
+    },
+    {
+        path:'preguntados',
+        loadComponent:() => import('./juegos/preguntados/preguntados.component').then(m=>m.PreguntadosComponent)
+    }
 
 ];
