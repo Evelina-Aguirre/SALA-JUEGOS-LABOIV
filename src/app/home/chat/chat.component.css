@@ -78,7 +78,9 @@ body {
   font-weight: bold;
   text-decoration: underline;
 }
-
+.timestamp {
+  align-self: flex-end; 
+}
 .input-container {
   display: flex;
   align-items:center;

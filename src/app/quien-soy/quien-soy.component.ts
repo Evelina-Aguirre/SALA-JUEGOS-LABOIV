@@ -34,7 +34,4 @@ export class QuienSoyComponent implements OnInit{
     });
   }
   
-  atras(){
-    this.router.navigate(['/home']);
-  }
 }

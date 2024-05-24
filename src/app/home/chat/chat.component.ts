@@ -17,8 +17,6 @@ import { MensajeErrorService } from '../../services/mensaje-error.service';
 
 })
 export class ChatComponent implements OnInit{
-  @ViewChild('mensajesContainer') mensajesContainer!: ElementRef;
-
   usuarioLogueado: string| null = null;
   mensajes: any[] = [];
   nuevoMensaje: string = '';
@@ -44,7 +42,6 @@ export class ChatComponent implements OnInit{
     });
     this.chatService.getMessages().subscribe((data: any[]) => {
       this.mensajes = data.sort((a, b) => b.timestamp - a.timestamp);
-      this.scrollToBottom();
     });
     
   }
@@ -62,14 +59,7 @@ export class ChatComponent implements OnInit{
    console.log("ya salí");
 
   }
-  scrollToBottom(): void {
-    if (this.mensajesContainer) {
-      setTimeout(() => {
-        this.mensajesContainer.nativeElement.scrollTop =
-          this.mensajesContainer.nativeElement.scrollHeight;
-      });
-    }
-  }
+ 
  
   }
 
