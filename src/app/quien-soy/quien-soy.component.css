@@ -21,14 +21,7 @@ body {
   cursor: pointer;
   border-radius: 10px;
 }
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  padding: 0px;
-  background-color: #4a126e73;
-}
+
 .atras-button{
   background-color: #061855;
   border: none;

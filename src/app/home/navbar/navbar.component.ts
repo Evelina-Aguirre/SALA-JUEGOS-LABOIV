@@ -15,10 +15,10 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent implements OnInit {
 
 usuarioLogueado: string| null = null;
-mostrarBotonVolver:boolean  = false;
 
 constructor(private authService : AuthService, private router:Router) {}
   ngOnInit(): void {
+    console.log("ENTRE ONINIT NAVBAR");
     this.authService.getCurrentUser().subscribe(user => {
       if(user)
         {
@@ -28,16 +28,6 @@ constructor(private authService : AuthService, private router:Router) {}
         this.usuarioLogueado = null; 
       }
     });
-
-    this.router.events.subscribe(val => {
-      if (this.router.url === '/home') {
-        this.mostrarBotonVolver=false;
-        console.log('noseve');
-      } else{
-        this.mostrarBotonVolver = true;
-        console.log('debeería verse');
-      } 
-    });
   }
 
 logout(): void {
@@ -46,6 +36,11 @@ logout(): void {
   }).catch(error => {
     console.error('Error al cerrar sesión:', error);
   });
+}
+
+mostrarBotonVolver(): boolean {
+  const currentUrl = this.router.url;
+  return currentUrl !== '/home' && currentUrl !== '/registro';
 }
 
 getButtonText(): string {
