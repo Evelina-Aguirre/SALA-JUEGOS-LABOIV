@@ -8,6 +8,7 @@ import { User } from 'firebase/auth';
 import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 import Swal from 'sweetalert2';
+import { MensajeErrorService } from '../services/mensaje-error.service';
 
 
 
@@ -25,7 +26,11 @@ export class LoginComponent implements OnInit {
   userLogueado: string = "";
   public miObservable: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
-  constructor(private router: Router, public auth: Auth, private _snackBar: MatSnackBar, private firestore: Firestore) { }
+  constructor(private router: Router, 
+    public auth: Auth,
+     private _snackBar: MatSnackBar, 
+     private firestore: Firestore,
+    private msjError :MensajeErrorService) { }
 
   ngOnInit(): void {
 
@@ -47,28 +52,22 @@ export class LoginComponent implements OnInit {
            console.log("Se ha logueado el usuario" + res);});*/
         this.router.navigate(['./home']);
       } else {
-        this.mostrarError('ERROR DE AUTENTICACIÓN');
+        this.msjError.mostrarError('Error autenticación.')
       }
     }).catch((e) => {
       if (e.code === 'auth/invalid-email') {
-        this.mostrarError('Error, ingresa email.');
+        this.msjError.mostrarError('Error, ingresa email.');
 
       } else if (e.code === 'auth/missing-password') {
-        this.mostrarError('Debes completar ambos campos.');
+        this.msjError.mostrarError('Debes completar ambos campos.');
         
       } else if ('auth/weak-password') {
-        this.mostrarError('La contraseña debe contener al menos 6 carácteres.');
+        this.msjError.mostrarError('La contraseña debe contener al menos 6 carácteres.');
       }
       console.error('Error de autenticación:', e);
     });
   }
-  mostrarError(mensaje: string) {
-    const verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-    this._snackBar.open(mensaje, 'Cerrar', {
-      duration: 3000,
-      verticalPosition: verticalPosition
-    });
-  }
+
 
   AccesoDirecto() {
     console.log(this.userLogueado);

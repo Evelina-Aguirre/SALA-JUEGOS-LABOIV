@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { JuegosComponent } from './juegos/juegos.component';
 import { ChatComponent } from './chat/chat.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MensajeErrorService } from '../services/mensaje-error.service';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -17,7 +19,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 export class HomeComponent implements OnInit{
   usuarioLogueado: string| null = null;
 
-  constructor(private router:Router,private authService: AuthService){}
+  constructor(private router:Router,
+    private authService: AuthService,
+  private msjError: MensajeErrorService){}
+
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe(user => {
       if(user)

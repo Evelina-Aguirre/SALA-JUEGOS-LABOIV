@@ -5,26 +5,37 @@ import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { RegistroComponent } from './registro/registro.component';
 import { ChatComponent } from './home/chat/chat.component';
 import { JuegosComponent } from './home/juegos/juegos.component';
+import { usuarioLogueadoGGuard } from './guards/usuario-logueado-g.guard';
 
 export const routes: Routes = [
 
     { path: '', redirectTo: '/Login', pathMatch: "full" },
-    { path: 'registro',
-    loadComponent: () => import('./registro/registro.component').then(m => m.RegistroComponent) 
+    {
+        path: 'registro',
+        loadComponent: () => import('./registro/registro.component').then(m => m.RegistroComponent)
     },
-    { path: 'login',
-    loadComponent: () => import('./login/login.component').then(m => m.LoginComponent) 
+    {
+        path: 'login',
+        loadComponent: () => import('./login/login.component').then(m => m.LoginComponent)
     },
-    { path: 'chat', 
-    loadComponent: () => import('./home/chat/chat.component').then(m => m.ChatComponent) },
-    { path: 'juegos', 
-    loadComponent: () => import('./home/juegos/juegos.component').then(m => m.JuegosComponent) 
+    {
+        path: 'chat',
+        loadComponent: () => import('./home/chat/chat.component').then(m => m.ChatComponent),
+        canActivate:[usuarioLogueadoGGuard]
+        
     },
-    { path: 'home',
-    loadComponent: () => import('./home/home.component').then(m => m.HomeComponent) 
+    {
+        path: 'juegos',
+        loadComponent: () => import('./home/juegos/juegos.component').then(m => m.JuegosComponent)
     },
-    { path: 'quien-soy',
-    loadComponent: () => import('./quien-soy/quien-soy.component').then(m => m.QuienSoyComponent)  },
+    {
+        path: 'home',
+        loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
+    },
+    {
+        path: 'quien-soy',
+        loadComponent: () => import('./quien-soy/quien-soy.component').then(m => m.QuienSoyComponent)
+    },
     { path: '**', redirectTo: '/login' }
 
 ];

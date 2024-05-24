@@ -1,5 +1,5 @@
 <nav class="navbar">
     <p class="welcome-text">Bienvenido {{ usuarioLogueado }}</p>
-    <button *ngIf="mostrarBotonVolver" class="volver-button" (click)="volver()">Atrás</button>
+    <button   class="volver-button" (click)="volver()">Atrás</button>
     <button class="logout-button" (click)="logout()">{{ getButtonText() }}</button>
   </nav>

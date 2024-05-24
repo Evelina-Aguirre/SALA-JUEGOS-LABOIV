@@ -3,8 +3,8 @@ import { AuthService } from '../../services/auth.service';
 import { ChatService } from '../../services/chat.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatSnackBar, MatSnackBarModule, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { MensajeErrorService } from '../../services/mensaje-error.service';
 
 
 
@@ -21,7 +21,10 @@ export class ChatComponent implements OnInit{
   mensajes: any[] = [];
   nuevoMensaje: string = '';
 
-  constructor(private chatService: ChatService,private authService: AuthService,private _snackBar: MatSnackBar) {
+  constructor(private chatService: ChatService,
+    private authService: AuthService,
+  private msjError : MensajeErrorService) 
+  {
     this.chatService.getMessages().subscribe((data: any) => {
       this.mensajes = data;
     });
@@ -50,23 +53,18 @@ export class ChatComponent implements OnInit{
        this.nuevoMensaje = '';
    }
   }else{
-    this.mostrarError('Debes loguearte para utilizar el chat.');
+    this.msjError.mostrarError('Debes loguearte para utilizar el chat.');
    }
    console.log("ya salí");
 
   }
 
-  mostrarError(mensaje: string) {
-    const verticalPosition: MatSnackBarVerticalPosition = 'top';
-    this._snackBar.open(mensaje, 'Cerrar', {
-      duration: 2000,
-      verticalPosition: verticalPosition
-    });
+ 
   }
 
 
 
 
-  }
+  
 
 
