@@ -1,0 +1,14 @@
+<div class="teclado">
+    <div class="fila">
+      <button *ngFor="let letra of fila1" (click)="enviarLetraClickeada(letra)">{{ letra }}</button>
+    </div>
+    <div class="fila">
+      <button *ngFor="let letra of fila2" (click)="enviarLetraClickeada(letra)">{{ letra }}</button>
+    </div>
+    <div class="fila">
+      <button *ngFor="let letra of fila3" (click)="enviarLetraClickeada(letra)">{{ letra }}</button>
+    </div>
+    <div class="fila">
+      <button *ngFor="let letra of fila4" (click)="enviarLetraClickeada(letra)">{{ letra }}</button>
+    </div>
+  </div>

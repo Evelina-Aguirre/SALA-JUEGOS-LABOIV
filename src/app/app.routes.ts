@@ -6,7 +6,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { ChatComponent } from './home/chat/chat.component';
 import { JuegosComponent } from './home/juegos/juegos.component';
 import { usuarioLogueadoGGuard } from './guards/usuario-logueado-g.guard';
-import { AhorcadoComponent } from './juegos/ahorcado/ahorcado.component';
+import { AhorcadoComponent } from './home/juegos/ahorcado/ahorcado.component';
 
 export const routes: Routes = [
 
@@ -39,15 +39,15 @@ export const routes: Routes = [
     },
     {
         path:'ahorcado',
-        loadComponent:()=>import('./juegos/ahorcado/ahorcado.component').then(m=>m.AhorcadoComponent)
+        loadComponent:()=>import('./home/juegos/ahorcado/ahorcado.component').then(m=>m.AhorcadoComponent)
     },
     {
         path:'mayormenor',
-        loadComponent:() => import('./juegos/mayormenor/mayormenor.component').then(m=>m.MayormenorComponent)
+        loadComponent:() => import('./home/juegos/mayormenor/mayormenor.component').then(m=>m.MayormenorComponent)
     },
     {
         path:'preguntados',
-        loadComponent:() => import('./juegos/preguntados/preguntados.component').then(m=>m.PreguntadosComponent)
+        loadComponent:() => import('./home/juegos/preguntados/preguntados.component').then(m=>m.PreguntadosComponent)
     },
     { path: '**', redirectTo: '/login' }
     

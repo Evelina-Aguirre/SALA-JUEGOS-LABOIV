@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../../home/navbar/navbar.component';
+import { NavbarComponent } from '../../navbar/navbar.component';
 @Component({
   selector: 'app-preguntados',
   standalone: true,
