@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-  import { Route } from '@angular/router';
+import { Route } from '@angular/router';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -14,41 +14,59 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent implements OnInit {
 
-usuarioLogueado: string| null = null;
+  usuarioLogueado: string | null = null;
 
-constructor(private authService : AuthService, private router:Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
   ngOnInit(): void {
-    console.log("ENTRE ONINIT NAVBAR");
     this.authService.getCurrentUser().subscribe(user => {
-      if(user)
-        {
-          this.usuarioLogueado = user?.email;
-        }
+      if (user) {
+        this.usuarioLogueado = user?.email;
+      }
       else {
-        this.usuarioLogueado = null; 
+        this.usuarioLogueado = null;
       }
     });
   }
 
-logout(): void {
-  this.authService.logout().then(() => {
-    this.router.navigate(['./login']);
-  }).catch(error => {
-    console.error('Error al cerrar sesión:', error);
-  });
-}
+  logout(): void {
+    this.authService.logout().then(() => {
+      this.router.navigate(['./login']);
+    }).catch(error => {
+      console.error('Error al cerrar sesión:', error);
+    });
+  }
 
-mostrarBotonVolver(): boolean {
-  const currentUrl = this.router.url;
-  return currentUrl !== '/home' && currentUrl !== '/registro';
-}
+  retorno: boolean = true;
+  url: string = '';
+  botonAtras() {
+    const currentUrl = this.router.url;
+    switch (currentUrl) {
+      case '/home':
+        this.retorno = false;
+        break;
+      case '/registro':
+        this.retorno = false;
+        break;
+      case '/ahorcado':
+      case '/mayormenor':
+      case '/preguntados':
+        this.url = '/juegos';
+        this.retorno = true;
+        break;
+      default:
+        this.url = '/home';
+        this.retorno = true;
+        break;
+    }
+    return this.retorno;
+  }
 
-getButtonText(): string {
-  return this.usuarioLogueado ? 'cerrar sesión' : 'login';
-}
+  getButtonText(): string {
+    return this.usuarioLogueado ? 'cerrar sesión' : 'login';
+  }
 
-volver(){
-  this.router.navigate(['./home']);
-}
+  navegar(string: string) {
+    this.router.navigate([string]);
+  }
 
 }

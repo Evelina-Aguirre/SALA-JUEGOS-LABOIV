@@ -17,9 +17,11 @@ export class JuegosComponent implements OnInit{
   }
 
   constructor(private router: Router) {
- 
     
   }
 
+  ir(string:string){
+    this.router.navigate([string]);
+  }
 
 }

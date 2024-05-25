@@ -1,12 +1,16 @@
 <body>
     <app-navbar></app-navbar>
-    <body>
-        <button class="ahorcado-button" type="submit" routerLink="ahorcado" tabindex="0">Ahorcado</button>
-        <button class="mayormeno-button" type="submit" routerLink="mayormenor" tabindex="0">Mayor o Menor</button>
-        <button class="preguntados-button" type="submit" routerLink="preguntados" tabindex="0">Preguntados</button>
-        <button class="propio-button"type="submit" routerLink="propio" tabindex="0">Propio</button>
-    </body>
 
-    <img src="../../../assets/images/ahoracado fondo.png" alt="">
+    <div class="container">
+        <div class="column">
+            <button class="ahorcado-button" type="submit" (click)="ir('ahorcado')" tabindex="0">Ahorcado</button>
+            <button class="mayormenor-button" type="submit" (click)="ir('mayormenor')" tabindex="0">Mayor o Menor</button>
+        </div>
+        <div class="column">
+            <button class="preguntados-button" type="submit" (click)="ir('preguntados')" tabindex="0">Preguntados</button>
+            <button class="propio-button" type="submit" (click)="ir('propio')" tabindex="0">Propio</button>
+        </div>
+    </div>
+
 </body>
 
