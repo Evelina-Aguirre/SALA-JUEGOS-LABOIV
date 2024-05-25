@@ -11,18 +11,17 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class TecladoVirtualComponent {
 
   letras: string[] = 'abcdefghijklmnopqrstuvwxyz'.split(''); 
-  fila1: string[] = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
-  fila2: string[] = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
-  fila3: string[] = ['Z', 'X', 'C', 'V', 'B', 'N', 'M'];
-  fila4: string[] = [' ']; 
+  fila1: string[] = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P','A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L','Z', 'X', 'C', 'V', 'B', 'N', 'M'];
+  /*fila2: string[] = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
+  fila3: string[] = ['Z', 'X', 'C', 'V', 'B', 'N', 'M'];*/
   
-  @Output() letterClicked = new EventEmitter<string>(); 
-
+  
   constructor() { }
-
+  
+  @Output() letraClickeada = new EventEmitter<string>(); 
  
   enviarLetraClickeada(letra: string): void {
-    this.letterClicked.emit(letra); 
+    this.letraClickeada.emit(letra); 
   }
 
 }

@@ -1,18 +1,30 @@
 <body>
     <app-navbar></app-navbar>
-    
-    <div class="ahorcado-container">
-        <div class="ahorcado-image">
-            <img src="../../../../assets/images/ahoracado fondo.png" alt="">
-        </div>
-        <div class="mostrarPalabra">
-            <p>{{palabraOcultada}}</p>
-        </div>
-        <div class="keyboard">
-            <app-teclado-virtual></app-teclado-virtual>
 
-      
+    <div class="ahorcado-container">
+        <div class="izquierda">
+
+            <div class="ahorcado-image">
+                <img src="../../../../assets/images/ahoracado fondo.png" alt="">
+            </div>
+        </div>
+        <div class="derecha">
+
+            <div class="mostrarPalabra">
+                <p>{{palabraOcultada}}</p>
+            </div>
+            <div class="keyboard">
+                <app-teclado-virtual></app-teclado-virtual>
+            </div>
+
+            <!--button *ngFor="Elije una letra" (click)="adivinarLetra(letra)" [disabled]="letraSeleccionada(letra)">
+                    {{ letra }}
+                </button-->
+            </div>
+            <div class="result">
+                <!--  p *ngIf="gano()">¡Ganaste!</p>
+                <p *ngIf="perdio()">¡Perdiste! La palabra era: {{ palabraActual}}</p-->
         </div>
     </div>
-    
+
 </body>

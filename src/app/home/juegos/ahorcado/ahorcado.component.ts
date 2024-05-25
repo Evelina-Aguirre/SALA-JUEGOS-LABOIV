@@ -26,9 +26,9 @@ export class AhorcadoComponent {
   }
 
 inicializarPalabra(): void {
-    this.palabraOcultada = '_'.repeat(this.palabraActual.length); 
+    this.palabraOcultada = '_ '.repeat(this.palabraActual.length); 
   }
 
-  
+
 
 }
