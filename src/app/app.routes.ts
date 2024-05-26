@@ -21,7 +21,7 @@ export const routes: Routes = [
     },
     {
         path: 'chat',
-        loadComponent: () => import('./home/chat/chat.component').then(m => m.ChatComponent),
+   component:ChatComponent,
         canActivate:[usuarioLogueadoGGuard]
         
     },

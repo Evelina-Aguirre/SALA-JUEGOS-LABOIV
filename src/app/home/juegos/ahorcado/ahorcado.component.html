@@ -5,26 +5,22 @@
         <div class="izquierda">
 
             <div class="ahorcado-image">
-                <img src="../../../../assets/images/ahoracado fondo.png" alt="">
+                <img [src]="imagenActual" alt="">
             </div>
         </div>
         <div class="derecha">
-
             <div class="mostrarPalabra">
                 <p>{{palabraOcultada}}</p>
             </div>
             <div class="keyboard">
-                <app-teclado-virtual></app-teclado-virtual>
-            </div>
-
-            <!--button *ngFor="Elije una letra" (click)="adivinarLetra(letra)" [disabled]="letraSeleccionada(letra)">
-                    {{ letra }}
-                </button-->
+                <app-teclado-virtual (letraClickeada)="recibirLetra($event)"></app-teclado-virtual>
+            </div>   
             </div>
             <div class="result">
-                <!--  p *ngIf="gano()">¡Ganaste!</p>
-                <p *ngIf="perdio()">¡Perdiste! La palabra era: {{ palabraActual}}</p-->
+                <p *ngIf="gano()">¡Ganaste!</p>
+                <p *ngIf="perdio()">¡Perdiste! La palabra era: {{ this.palabraActual}}</p>
         </div>
     </div>
 
 </body>
+
