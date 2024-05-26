@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import { NavbarComponent } from '../../navbar/navbar.component';
+import { CartaInterface } from './carta.interface';
+import { CartasService } from '../../../services/cartas.service';
 
 @Component({
   selector: 'app-mayormenor',
@@ -10,4 +12,12 @@ import { NavbarComponent } from '../../navbar/navbar.component';
 })
 export class MayormenorComponent {
 
+ mazo: CartaInterface[]=[];
+
+
+  constructor(private cartas:CartasService) {
+   this.mazo=cartas.mazo;
+  }
+  
+  
 }

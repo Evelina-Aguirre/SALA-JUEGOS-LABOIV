@@ -7,6 +7,7 @@ import { ChatComponent } from './home/chat/chat.component';
 import { JuegosComponent } from './home/juegos/juegos.component';
 import { usuarioLogueadoGGuard } from './guards/usuario-logueado-g.guard';
 import { AhorcadoComponent } from './home/juegos/ahorcado/ahorcado.component';
+import { TecladoVirtualComponent } from './home/juegos/ahorcado/teclado-virtual/teclado-virtual.component';
 
 export const routes: Routes = [
 
@@ -39,7 +40,13 @@ export const routes: Routes = [
     },
     {
         path:'ahorcado',
-        loadComponent:()=>import('./home/juegos/ahorcado/ahorcado.component').then(m=>m.AhorcadoComponent)
+        loadComponent:()=>import('./home/juegos/ahorcado/ahorcado.component').then(m=>m.AhorcadoComponent),
+        children:[
+            {
+                path:"teclado",
+                component:TecladoVirtualComponent
+            }
+        ]
     },
     {
         path:'mayormenor',
