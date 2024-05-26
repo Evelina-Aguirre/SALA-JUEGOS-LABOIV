@@ -13,12 +13,17 @@
                 <p>{{palabraOcultada}}</p>
             </div>
             <div class="keyboard">
-                <app-teclado-virtual (letraClickeada)="recibirLetra($event)"></app-teclado-virtual>
+                <app-teclado-virtual [terminoJuego]="terminoJuego" (letraClickeada)="recibirLetra($event)"></app-teclado-virtual>
+                <div class="result" *ngIf="gano() || perdio()">
+                    <div class="result-content"> 
+                      <p *ngIf="gano()">¡Ganaste!</p>
+                      <p *ngIf="perdio()">¡Perdiste! La palabra era: {{ palabraActual }}</p>
+                    </div>
+                    <div>
+                        <button class="reiniciar" (click)="reiniciarJuego()">Volver a jugar</button> 
+                    </div>
+                </div>
             </div>   
-            </div>
-            <div class="result">
-                <p *ngIf="gano()">¡Ganaste!</p>
-                <p *ngIf="perdio()">¡Perdiste! La palabra era: {{ this.palabraActual}}</p>
         </div>
     </div>
 

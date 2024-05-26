@@ -35,10 +35,8 @@ button:active {
 }
 
 
-.keyboard button:disabled {
-    background-color: #c8e6c9; 
-    color: #8bc34a; 
-    cursor: not-allowed; 
-    opacity: 0.6; 
-    box-shadow: none;
+.letras:disabled {
+  background-color: #cccccca8;
+  color: #666666af; 
+  cursor: auto; 
 }

@@ -1,5 +1,7 @@
 <div class="teclado">
     <div class="fila">
-      <button *ngFor="let letra of fila1" (click)="enviarLetraClickeada(letra)">{{ letra }}</button>
+      <button class="letras" *ngFor="let letra of fila1" 
+      [disabled]="letraPresionada(letra)|| terminoJuego" 
+      (click)="enviarLetraClickeada(letra)">{{ letra }}</button>
     </div>
   </div>

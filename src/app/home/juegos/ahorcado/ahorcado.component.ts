@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input, AfterViewInit, AfterViewChecked,ChangeDetectorRef  } from '@angular/core';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { TecladoVirtualComponent } from './teclado-virtual/teclado-virtual.component';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { listaPalabras } from './palabras';
 
 @Component({
   selector: 'app-ahorcado',
@@ -10,9 +12,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './ahorcado.component.html',
   styleUrl: './ahorcado.component.css'
 })
-export class AhorcadoComponent {
+export class AhorcadoComponent implements AfterViewChecked {
 
-  palabras: string[] = ['BANANA', 'MANZANA', 'NARANJA'];
+  palabras: string[] = listaPalabras;
   palabraActual: string = '';
   palabraOcultada: string = '';
   letraElejida: string = '';
@@ -27,14 +29,22 @@ export class AhorcadoComponent {
     '../../../../assets/images/intento4.png',
     '../../../../assets/images/intento5.png',
     '../../../../assets/images/intento6.png',
-    '../../../../assets/images/intento7.png',
+    '../../../../assets/images/intento7b.png',
     '../../../../assets/images/intento8.png'
   ];
   imagenActual: string = this.ahorcadoImagenes[0];
+  public letrasPresionadas:string[] = [];
+  public terminoJuego:boolean = false;
 
-  constructor() {
+  constructor(private router:Router, private cambio:ChangeDetectorRef) {
     this.palabraAlAzar();
     this.inicializarPalabra();
+
+  }
+  ngAfterViewChecked(): void {
+    if (this.verificarGano() || this.verificarPerdio()) {
+      this.terminoJuego = true;
+      this.cambio.detectChanges();}
   }
 
   palabraAlAzar(): void {
@@ -103,6 +113,17 @@ export class AhorcadoComponent {
 
   perdio() {
     return this.verificarPerdio();
+  }
+
+  reiniciarJuego(): void {
+    this.palabraAlAzar();
+    this.inicializarPalabra();
+    this.intentos = 0;
+    this.imagenActual = this.ahorcadoImagenes[0];
+    this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/ahorcado']);
+    });
+    
   }
 
 }
