@@ -12,7 +12,7 @@ export class TecladoVirtualComponent{
 
   fila1: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 
   'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  public letrasPresionadas:string[] = [];
+  letrasPresionadas:string[] = [];
   @Output() letraClickeada = new EventEmitter<string>();
   @Input() terminoJuego:boolean = false;
 

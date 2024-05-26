@@ -5,8 +5,21 @@
         <h2>Adiviná si la proxima carta va a ser mayor o menor</h2>
     </div>
     <div class="cartas-container">
-   <!--img src={{imagen}} alt=""-->
-   <img class="masoImg" src="../../../../assets/images/cartas/maso.png" alt="">
+        <!--img src={{imagen}} alt=""-->
+
+        <button type="button" (click)="seleccionar('mayor')">Mayor</button>
+    <button type="button" (click)="seleccionar('menor')">Menor</button>
+    <button (click)="jugar()">Jugar</button>
+<div class="cartaAnterior">
+    <!--img class="masoImg" src="../../../../assets/images/cartas/maso.png" alt=""-->
+    <img class="cartaAnterior-img" [src]="cartaAnterior?.rutaImagen" alt="">
+
+</div>
+<div>
+    <img class="cartaActual-img" [src]="cartaActual?.rutaImagen" alt="">
+</div>
     </div>
+
+
     <p></p>
 </body>

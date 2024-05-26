@@ -47,16 +47,16 @@ export class AhorcadoComponent implements AfterViewChecked {
       this.cambio.detectChanges();}
   }
 
-  palabraAlAzar(): void {
+  palabraAlAzar() {
     const randomIndex = Math.floor(Math.random() * this.palabras.length);
     this.palabraActual = this.palabras[randomIndex];
   }
 
-  inicializarPalabra(): void {
+  inicializarPalabra() {
     this.palabraOcultada = '_ '.repeat(this.palabraActual.length);
   }
 
-  recibirLetra(letra: string): void {
+  recibirLetra(letra: string) {
     this.letraElejida = letra;
     this.estaEnLaPalabra = this.buscarLetraEnPalabra(this.letraElejida);
     if (this.estaEnLaPalabra) {
@@ -65,19 +65,13 @@ export class AhorcadoComponent implements AfterViewChecked {
       this.intentos++;
       this.actualizarImagenAhorcado();
     }
-
-    if (this.verificarGano()) {
-      console.log('¡Ganaste!');
-    } else if (this.verificarPerdio()) {
-      console.log('¡Perdiste! La palabra era: ' + this.palabraActual);
-    }
   }
 
-  buscarLetraEnPalabra(letra: string): boolean {
+  buscarLetraEnPalabra(letra: string){
     return this.palabraActual.includes(letra);
   }
 
-  actualizaPalabraOcultada(letra: string): void {
+  actualizaPalabraOcultada(letra: string) {
     let nuevaPalabraOcultada = '';
 
     for (let i = 0; i < this.palabraActual.length; i++) {
@@ -92,22 +86,22 @@ export class AhorcadoComponent implements AfterViewChecked {
     this.palabraOcultada = nuevaPalabraOcultada.trim();
   }
 
-  actualizarImagenAhorcado(): void {
+  actualizarImagenAhorcado() {
     if (this.intentos <= this.maxIntentos) {
       this.imagenActual = this.ahorcadoImagenes[this.intentos];
     }
   }
 
-  verificarGano(): boolean {
+  verificarGano() {
     return !this.palabraOcultada.includes('_');
   }
 
-  verificarPerdio(): boolean {
+  verificarPerdio(){
     console.log(this.intentos);
     return this.intentos == this.maxIntentos;
   }
 
-  gano() {
+  gano(){
     return this.verificarGano();
   }
 
@@ -115,7 +109,7 @@ export class AhorcadoComponent implements AfterViewChecked {
     return this.verificarPerdio();
   }
 
-  reiniciarJuego(): void {
+  reiniciarJuego(){
     this.palabraAlAzar();
     this.inicializarPalabra();
     this.intentos = 0;

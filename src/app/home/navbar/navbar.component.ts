@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   usuarioLogueado: string | null = null;
 
   constructor(private authService: AuthService, private router: Router) { }
+
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe(user => {
       if (user) {
@@ -38,6 +39,7 @@ export class NavbarComponent implements OnInit {
 
   retorno: boolean = true;
   url: string = '';
+
   botonAtras() {
     const currentUrl = this.router.url;
     switch (currentUrl) {

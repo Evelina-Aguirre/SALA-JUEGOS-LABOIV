@@ -9,6 +9,27 @@ body {
     width: 100%;
   }
  .masoImg{
-  width: 200px;
-  height: 200px;
+  width: 100px; 
+  height: auto; 
  }
+ .titulo-container {
+  text-align: center;
+  margin-top: 20px;
+  color: aliceblue;
+}
+
+.carta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: aqua;
+}
+
+.carta-img {
+  width: 200px; 
+  height: auto; 
+  margin-right: 20px; 
+}
+
+

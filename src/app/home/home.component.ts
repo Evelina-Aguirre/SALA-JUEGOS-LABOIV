@@ -35,13 +35,14 @@ export class HomeComponent implements OnInit{
     });
   }
 
-  logout(): void {
+  logout() {
     this.authService.logout().then(() => {
       this.router.navigate(['/login']);
     }).catch(error => {
       console.error('Error al cerrar sesión:', error);
     });
   }
+  
   navegar(ruta:string) {
     this.router.navigate([ruta]);
   }
