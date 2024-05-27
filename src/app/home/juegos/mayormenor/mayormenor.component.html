@@ -1,25 +1,59 @@
 <body>
     <app-navbar></app-navbar>
-    <div class="titulo-container">
-        <h1>Mayor o Menor?</h1>
-        <h2>Adiviná si la proxima carta va a ser mayor o menor</h2>
+    <div class="container">
+        <div class="titulo-container">
+            <h1>Mayor o Menor?</h1>
+            <h2>Adiviná si la próxima carta va a ser mayor o menor</h2>
+        </div>
+        <div class="cartas-container">
+            <!--img src={{imagen}} alt=""-->
+            <div class="botones">
+                <button class="botonMayorMenor" type="button" (click)="seleccionar('MAYOR')" (click)="jugar()" [disabled]="gano || perdio">Mayor</button>
+                <button class="botonMayorMenor" type="button" (click)="seleccionar('MENOR')" (click)="jugar()" [disabled]="gano || perdio">Menor</button>
+                
+            </div>
+            <div class="puntos">
+                <h2>Puntos acumulados : {{puntosAcumulados}}</h2>
+            </div>
+            <div class="cartas">
+                <div class="carta">
+                <!--img class="masoImg" src="../../../../assets/images/cartas/maso.png" alt=""-->
+                    <img class="carta-img" [src]="cartaAnterior?.rutaImagen" alt="Carta Anterior">
+                    <span class="carta-descripcion">Carta Anterior</span>
+                </div>
+                <div class="carta">
+                    <img class="carta-img" [src]="cartaActual?.rutaImagen" alt="Carta Actual">
+                    <span class="carta-descripcion">Nueva carta</span>
+                </div>
+            </div>
+        </div>
+        <div class="resultado" *ngIf="gano">
+            <div class="mensajeResultado">
+                <h1>GANASTE!
+                    <button class="continuar-button" type="button" (click)="continuar()" >Continuar</button>
+                </h1>
+            
+    
+            </div>
+        </div>
+        <div class="resultado" *ngIf="perdio">
+            <div class="mensajeResultado">
+                <h1>UPS! VOLVE A INTENTAR!
+
+                    <button class="continuar-button" type="button" (click)="continuar()" >Continuar</button>
+                </h1>
+            
+    
+            </div>
+        </div>
     </div>
-    <div class="cartas-container">
-        <!--img src={{imagen}} alt=""-->
-
-        <button type="button" (click)="seleccionar('mayor')">Mayor</button>
-    <button type="button" (click)="seleccionar('menor')">Menor</button>
-    <button (click)="jugar()">Jugar</button>
-<div class="cartaAnterior">
-    <!--img class="masoImg" src="../../../../assets/images/cartas/maso.png" alt=""-->
-    <img class="cartaAnterior-img" [src]="cartaAnterior?.rutaImagen" alt="">
-
-</div>
-<div>
-    <img class="cartaActual-img" [src]="cartaActual?.rutaImagen" alt="">
-</div>
-    </div>
-
-
-    <p></p>
+    <!--div class="mensaje" *ngIf="mensajeElegido && !gano && !perdio">
+        <p>{{ mensajeElegido }}</p>
+    </div-->
+    <div class="fireworks">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <!-- Agrega más partículas según sea necesario -->
+      </div>
 </body>

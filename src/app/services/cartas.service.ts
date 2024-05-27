@@ -8,7 +8,8 @@ import { CartaInterface } from '../home/juegos/mayormenor/carta.interface';
 export class CartasService {
 
   constructor() { }
-
+public cartaSignoPregunta:CartaInterface = {numero:1,rutaImagen:"../../../../assets/images/abcd.png"};
+public cartaInicial:CartaInterface = {numero:7,rutaImagen:"../../../../assets/images/cartas/c7.png"}
  public mazo: CartaInterface[] = [];
   generarMazo(): CartaInterface[] {
    

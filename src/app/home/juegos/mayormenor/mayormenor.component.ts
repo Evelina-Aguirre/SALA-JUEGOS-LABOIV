@@ -9,47 +9,90 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-mayormenor',
   standalone: true,
-  imports: [NavbarComponent, CommonModule,FormsModule],
+  imports: [NavbarComponent, CommonModule, FormsModule],
   templateUrl: './mayormenor.component.html',
   styleUrl: './mayormenor.component.css'
 })
 export class MayormenorComponent {
-
+  
   mazo: CartaInterface[] = [];
+  prediccion: string = '';
   cartaAnterior: CartaInterface | null = null;
   cartaActual: CartaInterface | null = null;
-  prediccion:string='';
-
+  transitoria: CartaInterface | null = null;
+  puntosAcumulados:number=0;
+  gano:boolean=false;
+  perdio:boolean=false;
+  contador: number = 0;
+  mensajeElegido: string | null = null;
+  
   constructor(private cartas: CartasService) {
     cartas.generarMazo();
     this.mazo = cartas.mazo;
-    console.log(this.mazo);
+    this.inicializar();
   }
+
+inicializar(){
+    this.cartaAnterior = this.cartas.cartaSignoPregunta;
+    this.cartaActual = this.cartas.cartaInicial;
+    this.transitoria =this.cartas.cartaInicial;
+}
   obtenerCarta() {
     const randomIndex = Math.floor(Math.random() * this.mazo.length);
     this.cartaActual = this.mazo[randomIndex];
-    console.log("la carta que obtuvee",this.cartaActual);
   }
 
   seleccionar(opcion: string) {
-    this.prediccion = opcion; 
+    this.mensajeElegido = `Elegiste ${opcion}`;
+    this.prediccion = opcion;
   }
-  
+ 
+
+
   jugar() {
-    this.obtenerCarta();
-    if (!this.cartaActual || !this.cartaAnterior) {
-      return false;
+    if (this.cartaActual &&this.cartaAnterior&& this.transitoria) {
+
+      console.log("jugar principio actual:",this.cartaAnterior);
+      console.log("jugar principio anterior:", this.cartaActual);
+
+      this.obtenerCarta();
+     this.cartaAnterior=this.transitoria;
+
+          const valorAnterior = this.cartaAnterior.numero;
+          const valorActual = this.cartaActual.numero;
+       
+
+      const prediccionCorrecta = (this.prediccion === 'MAYOR' && valorActual > valorAnterior) ||
+                                 (this.prediccion === 'MENOR' && valorActual < valorAnterior);
+      
+      console.log("Carta anterior:", valorAnterior);
+      console.log("Carta actual:", valorActual);
+      console.log("Predicción correcta:", prediccionCorrecta);
+      console.log(this.contador);
+      this.contador++;
+      if(prediccionCorrecta)
+        {
+          this.puntosAcumulados++;
+        }else{
+          this.perdio = true;
+        }
+        console.log("jugar final actual:",this.cartaAnterior);
+        console.log("jugar final anterior:", this.cartaActual);
+      
+        return this.gano=prediccionCorrecta;
     }
-    const valorActual = this.cartaActual.numero;
-    const valorAnterior = this.cartaAnterior.numero;
+    return false;
 
-    const prediccionCorrecta = (this.prediccion === 'mayor' && valorActual > valorAnterior) ||
-      (this.prediccion === 'menor' && valorActual < valorAnterior);
+}
 
-    this.cartaAnterior = this.cartaActual;
-    this.obtenerCarta();
+continuar()
+{
+  this.cartaAnterior=this.cartaActual;
+  this.transitoria=this.cartaActual;
+  this.cartaActual =this.cartas.cartaSignoPregunta;
+  this.gano=false;
+  this.perdio=false;
+  this.mensajeElegido = null; 
 
-    return prediccionCorrecta;
-  }
-
+}
 }
