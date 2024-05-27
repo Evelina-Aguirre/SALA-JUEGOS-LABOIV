@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar, MatSnackBarModule, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { User } from 'firebase/auth';
 import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -36,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  registroLog() {
+  loginLog() {
     let col = collection(this.firestore, 'logins');
     console.log(col);
     addDoc(col, { fecha: new Date(), "user": this.userMail });
@@ -46,7 +45,7 @@ export class LoginComponent implements OnInit {
 
     signInWithEmailAndPassword(this.auth, this.userMail, this.userPWD).then((res) => {
       if (res.user.email !== null) {
-        this.registroLog();
+        this.loginLog();
         this.userLogueado = res.user.email;
         /* this.miObservable.subscribe((res)=>{
            console.log("Se ha logueado el usuario" + res);});*/
@@ -61,7 +60,9 @@ export class LoginComponent implements OnInit {
       } else if (e.code === 'auth/missing-password') {
         this.msjError.mostrarError('Debes completar ambos campos.');
         
-      } else if ('auth/weak-password') {
+      } else if ('ngauth/invalid-credential') {
+        this.msjError.mostrarError('Mail o contraseña incorrectos, no corresponden con un usuario registrado.');
+      }else if('auth/weak-password'){
         this.msjError.mostrarError('La contraseña debe contener al menos 6 carácteres.');
       }
       console.error('Error de autenticación:', e);

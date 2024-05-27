@@ -34,8 +34,8 @@ export class MayormenorComponent {
   }
 
   inicializar() {
-    this.cartaAnterior = this.cartas.cartaSignoPregunta;
-    this.cartaActual = this.cartas.cartaInicial;
+    this.cartaAnterior =this.cartas.cartaInicial;
+    this.cartaActual = this.cartas.cartaSignoPregunta;
     this.transitoria = this.cartas.cartaInicial;
   }
   obtenerCarta() {
