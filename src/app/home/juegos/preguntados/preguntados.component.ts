@@ -3,11 +3,12 @@ import { NavbarComponent } from '../../navbar/navbar.component';
 import { PreguntadosService } from '../../../services/preguntados.service';
 import { CommonModule } from '@angular/common';
 import { Pregunta } from './pregunta.interface';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-preguntados',
   standalone: true,
-  imports: [NavbarComponent, CommonModule],
+  imports: [NavbarComponent, CommonModule, FormsModule],
   templateUrl: './preguntados.component.html',
   styleUrl: './preguntados.component.css'
 })
@@ -24,6 +25,7 @@ export class PreguntadosComponent {
   img: string = "";
   contadorIntentos: number = 0;
   contadorGano: number = 0;
+  respuestaSeleccionada:string="";
 
 
   constructor(private pregServ: PreguntadosService) {
@@ -67,7 +69,9 @@ export class PreguntadosComponent {
     } else {
       console.log("No se pudo conseguir nueva pregunta");
     }
+
   }
+
 
   obtenerOpciones() {
     const opciones: string[] = [];
@@ -85,15 +89,17 @@ export class PreguntadosComponent {
     return array.sort(() => Math.random() - 0.5);
   }
 
-  verificarRespuesta(respuesta: string) {
-    if (respuesta === this.respuestaCorrecta) {
+  verificarRespuesta() {
+    if (this.respuestaSeleccionada === this.respuestaCorrecta) {
       this.resultado = true;
-      this.mensaje = 'Respuesta correcta!';
+      this.mensaje = '\(^▽^)/ Respuesta correcta!';
+      this.contadorGano++;
 
     } else {
       this.resultado = true;
-      this.mensaje = 'Respuesta incorrecta. La respuesta correcta era: ' + this.respuestaCorrecta;
+      this.mensaje = '(╥_╥) La respuesta correcta era:  ' + this.respuestaCorrecta;
     }
+    this.contadorIntentos++;
     this.mostrarNuevaPregunta();
   }
 }

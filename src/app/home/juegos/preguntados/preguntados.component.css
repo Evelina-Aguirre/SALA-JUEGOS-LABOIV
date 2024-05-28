@@ -12,18 +12,20 @@ body {
   }
  
 .container {
-    width: 80%;
-    max-width: 800px;
+ /* background-color: rgba(0, 0, 0, 0.486);*/
+    width: 100%;
+    max-width: 500px;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
     margin: 20px auto;
 }
 
 .pregunta-imagen-respuesta {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    margin-top: 20px;
+
 }
 
 .preguntaActual h2 {
@@ -38,7 +40,9 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 0px;
+    justify-content: center;
+    align-self: auto;
 }
 
 .opciones {
@@ -67,22 +71,37 @@ body {
 }
 
 .imagen {
-    margin-left: 20px;
+  margin-top: 20px;
+  margin-left:20px;
+  text-align: end;
+}
+
+.imagen-container {
+  width: 300px; 
+  height: 200px; 
+  overflow: hidden; 
+  border-radius: 10px;
 }
 
 .imagen img {
-    max-width: 100%;
-    height: auto;
-    max-height: 300px;
-    border-radius: 10px;
+  width: 100%; 
+  height: auto; 
 }
 
 .contador {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #fff;
+    margin-top: 0px;
+    margin-bottom: 20px;
+ 
     text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  
+    color: rgb(26, 35, 43);
+    font-size: 18px;
+    border-radius: 0%;
+    background-color: rgba(251, 255, 0, 0.486);
+    padding-left: 50px;
+    padding-right: 55px;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 .mensajeResultado {
@@ -90,7 +109,7 @@ body {
     text-align: center;
     font-size: 18px;
     color: #fff;
-    background-color: rgba(51, 51, 51, 0.8);
+    background-color: rgba(177, 80, 1, 0.8);
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);

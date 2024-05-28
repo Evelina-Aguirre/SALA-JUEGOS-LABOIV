@@ -94,7 +94,6 @@ background-image:url("../../assets/images/f4.jpg");
     cursor:pointer;
   }
   
-  /*Media Querie*/
   @media only screen and (min-width : 150px) and (max-width : 530px){
     .login-form h3 {
       text-align:center;
