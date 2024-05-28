@@ -1,10 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 body {
-    /*background-image:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');*/
-    /*background-image: url("../../assets/images/ajedrez.jpg");*/
-    background-image:   url("../../../../assets/images/f4.jpg");
-    margin: 0px;
-    font-family: 'Ubuntu', sans-serif;
-    background-size: 100% 100%;
-    height: 100vh;
-    width: 100%;
+  /*background-image:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');*/
+  /*background-image: url("../../assets/images/ajedrez.jpg");*/
+   background-image:   url("../../../../assets/images/f4.jpg");
+  margin: 0px;
+  font-family: 'Ubuntu', sans-serif;
+  background-size: 100% 100%;
+  height: 100vh;
+  width: 100%;
+  
   }
+ 
+.container {
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+.pregunta-imagen-respuesta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.preguntaActual h2 {
+    background-color: rgba(0, 0, 0, 0.486);
+    color: #fffdfd;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.842);
+}
+
+.opciones-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.opciones {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+
+.opciones input[type="radio"] {
+    margin-right: 5px;
+}
+
+.opciones label {
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 63, 199, 0.7);
+    padding: 5px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.opciones label:hover {
+    background-color: rgba(0, 63, 199, 0.9);
+}
+
+.imagen {
+    margin-left: 20px;
+}
+
+.imagen img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+.contador {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.mensajeResultado {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}

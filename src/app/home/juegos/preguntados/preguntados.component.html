@@ -1,11 +1,26 @@
 <body>
     <app-navbar></app-navbar>
-    <div class="preguntaActual">
-        <h2>{{ preguntaActual.pregunta }}</h2>
-        <ul>
-          <li *ngFor="let opcion of opciones" (click)="verificarRespuesta(opcion)">
-            {{ opcion }}
-          </li>
-        </ul>
-      </div>
+    <div class="container">
+        <div class="preguntaActual">
+            <div class="contador"><p>aca contador</p></div>
+            <h2>{{ preguntaAMostrar }}</h2>
+        </div>
+        <div class="pregunta-imagen-respuesta">
+            <div class="imagen">
+                <img [src]="img" alt="">
+            </div>
+            <div class="opciones-container">
+                <div class="opciones" *ngFor="let opcion of opciones">
+                    <input type="radio" [id]="opcion" [name]="'opcion'" [value]="opcion" (change)="verificarRespuesta(opcion)">
+                    <label [for]="opcion">{{ opcion }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="mensajeResultado">
+            <span>{{mensaje}}</span>
+        </div>
+    </div>
 </body>
+
+
+
