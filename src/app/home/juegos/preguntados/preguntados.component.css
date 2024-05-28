@@ -29,7 +29,7 @@ body {
 }
 
 .preguntaActual h2 {
-    background-color: rgba(0, 0, 0, 0.486);
+    background-color: rgba(0, 0, 0, 0.658);
     color: #fffdfd;
     text-align: center;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.842);
@@ -60,14 +60,14 @@ body {
     font-size: 18px;
     color: #fff;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 63, 199, 0.7);
+    background-color:  #003fc7d0;
     padding: 5px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .opciones label:hover {
-    background-color: rgba(0, 63, 199, 0.9);
+    background-color: rgba(92, 5, 255, 0.9);
 }
 
 .imagen {
@@ -103,13 +103,25 @@ body {
     padding-top: 10px;
     padding-bottom: 5px;
 }
+.contestar-button{
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #003fc7d0;
+  color: white;
+  transition: background-color 0.3s ease;
+  margin-left:200px ;
+}
 
 .mensajeResultado {
     margin-top: 20px;
     text-align: center;
     font-size: 18px;
     color: #fff;
-    background-color: rgba(177, 80, 1, 0.8);
+    background-color: rgba(184, 85, 3, 0.842);
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
