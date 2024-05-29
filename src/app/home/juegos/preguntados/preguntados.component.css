@@ -12,7 +12,7 @@ body {
   }
  
 .container {
- /* background-color: rgba(0, 0, 0, 0.486);*/
+  background-color: rgba(129, 66, 66, 0.61);
     width: 100%;
     max-width: 500px;
     border-radius: 10px;
@@ -125,4 +125,16 @@ body {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.continuar{
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #003fc7d0;
+  color: white;
+  transition: background-color 0.3s ease;
+padding-left: 20px;
 }

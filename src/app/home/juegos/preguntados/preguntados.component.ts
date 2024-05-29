@@ -26,7 +26,7 @@ export class PreguntadosComponent {
   contadorIntentos: number = 0;
   contadorGano: number = 0;
   respuestaSeleccionada:string="";
-
+  continuar:boolean=false;
 
   constructor(private pregServ: PreguntadosService) {
     this.obtenerPreguntas();
@@ -69,6 +69,7 @@ export class PreguntadosComponent {
     } else {
       console.log("No se pudo conseguir nueva pregunta");
     }
+    this.continuar=false;
 
   }
 
@@ -94,12 +95,18 @@ export class PreguntadosComponent {
       this.resultado = true;
       this.mensaje = '\(^▽^)/ Respuesta correcta!';
       this.contadorGano++;
+   
 
     } else {
       this.resultado = true;
-      this.mensaje = '(╥_╥) La respuesta correcta era:  ' + this.respuestaCorrecta;
+      this.mensaje = '(╥_╥) La respuesta correcta era:  ' + this.respuestaCorrecta +'  ';
     }
     this.contadorIntentos++;
+   
+  }
+
+  proximaPregunta(){
+    this.mensaje="";
     this.mostrarNuevaPregunta();
   }
 }

@@ -19,8 +19,9 @@
             </div>
         </div>
         <button class="contestar-button" (click)="verificarRespuesta()" [disabled]="!respuestaSeleccionada">Contestar</button> 
-        <div class="mensajeResultado">
+        <div *ngIf="mensaje !== ''"class="mensajeResultado">
             <span>{{mensaje}}</span>
+            <button class="continuar" (click)="proximaPregunta()">Continuar</button>
         </div>
     </div>
 </body>
