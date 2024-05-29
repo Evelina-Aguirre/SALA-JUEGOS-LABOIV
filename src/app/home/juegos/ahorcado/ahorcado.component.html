@@ -1,9 +1,14 @@
 <body>
     <app-navbar></app-navbar>
+<div class="puntos-container">
 
+    <div class="puntos">
+        <h2>Puntos acumulados : {{puntosAcumulados}} | Intentos:{{vuelta}}</h2>
+    </div>
+</div>
     <div class="ahorcado-container">
         <div class="izquierda">
-
+            
             <div class="ahorcado-image">
                 <img [src]="imagenActual" alt="">
             </div>

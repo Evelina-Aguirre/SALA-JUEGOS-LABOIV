@@ -1,6 +1,9 @@
 <body>
     <app-navbar></app-navbar>  
     <div class="container"> 
+        <div class="puntos">
+            <h4>Puntos acumulados : {{puntosAcumulados}} | Intentos:{{intentos}}</h4>
+        </div>
         <h1>LABERINTO</h1>
         
         <div class="laberinto-info">
@@ -10,18 +13,18 @@
         
         <button class="iniciarJuego" (click)="iniciarJuego()">Iniciar Juego!</button>
 
-        <div class="laberinto" tabindex="0"  (keydown)="moverJugador($event)">
+        <div class="laberinto" tabindex="0" (keydown)="moverJugador($event)">
             <div *ngFor="let fila of laberinto; let x = index" class="fila">
                 <div *ngFor="let celda of fila; let y = index" class="celda" 
                      [ngClass]="{'pasillo': celda === 0, 'pared': celda === 1, 'salida': celda === 2, 
-                     'jugador': x === jugadorX && y === jugadorY}">
+                     'jugador': x === jugadorX && y === jugadorY}"  >
                 </div>
             </div>
         </div>
     </div>
     <div *ngIf="mensaje !== ''"class="mensajeResultado">
         <span>{{mensaje}}</span>
-        <button class="continuar" (click)="resultado()">Continuar</button>
+        <button class="continuar" (click)="resultado()">Volver a jugar!</button>
     </div>
 </body>
 

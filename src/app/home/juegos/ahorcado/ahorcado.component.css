@@ -17,7 +17,9 @@ body {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 auto; 
+ /*margin: 0 auto; */
+ margin-top: -60px;
+ margin-left: 100px;
 }
 
 .izquierda {
@@ -38,7 +40,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .mostrarPalabra {
@@ -119,4 +121,21 @@ app-teclado-virtual button {
   color: #666666; 
   cursor: not-allowed; 
 }
+.puntos-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+
+}
+.puntos{
+  margin-top: 30px;
+  color: rgb(26, 35, 43);
+  font-size: 24;
+  border-radius: 0%;
+  background-color: rgba(251, 255, 0, 0.486);
+  padding-left: 30px;
+  padding-right: 80px;
+  padding-top: 10px;
+  max-width: 600px;
+  }
 

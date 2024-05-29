@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input, AfterViewInit, AfterViewChecked,ChangeDetectorRef  } from '@angular/core';
+import { Component, EventEmitter, Output, Input, AfterViewInit, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { TecladoVirtualComponent } from './teclado-virtual/teclado-virtual.component';
 import { CommonModule } from '@angular/common';
@@ -33,10 +33,13 @@ export class AhorcadoComponent implements AfterViewChecked {
     '../../../../assets/images/intento8.png'
   ];
   imagenActual: string = this.ahorcadoImagenes[0];
-  public letrasPresionadas:string[] = [];
-  public terminoJuego:boolean = false;
+  public letrasPresionadas: string[] = [];
+  public terminoJuego: boolean = false;
+  puntosAcumulados: number = 0;
+  vuelta: number = 0;
 
-  constructor(private router:Router, private cambio:ChangeDetectorRef) {
+
+  constructor(private router: Router, private cambio: ChangeDetectorRef) {
     this.palabraAlAzar();
     this.inicializarPalabra();
 
@@ -44,7 +47,12 @@ export class AhorcadoComponent implements AfterViewChecked {
   ngAfterViewChecked(): void {
     if (this.verificarGano() || this.verificarPerdio()) {
       this.terminoJuego = true;
-      this.cambio.detectChanges();}
+      this.vuelta++;
+      if (this.verificarGano()) {
+        this.puntosAcumulados++;
+      }
+      this.cambio.detectChanges();
+    }
   }
 
   palabraAlAzar() {
@@ -67,7 +75,7 @@ export class AhorcadoComponent implements AfterViewChecked {
     }
   }
 
-  buscarLetraEnPalabra(letra: string){
+  buscarLetraEnPalabra(letra: string) {
     return this.palabraActual.includes(letra);
   }
 
@@ -96,12 +104,12 @@ export class AhorcadoComponent implements AfterViewChecked {
     return !this.palabraOcultada.includes('_');
   }
 
-  verificarPerdio(){
+  verificarPerdio() {
     console.log(this.intentos);
     return this.intentos == this.maxIntentos;
   }
 
-  gano(){
+  gano() {
     return this.verificarGano();
   }
 
@@ -109,7 +117,7 @@ export class AhorcadoComponent implements AfterViewChecked {
     return this.verificarPerdio();
   }
 
-  reiniciarJuego(){
+  reiniciarJuego() {
     this.palabraAlAzar();
     this.inicializarPalabra();
     this.intentos = 0;
@@ -117,7 +125,7 @@ export class AhorcadoComponent implements AfterViewChecked {
     this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/ahorcado']);
     });
-    
+
   }
 
 }
