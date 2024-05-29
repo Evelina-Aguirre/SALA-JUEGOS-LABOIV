@@ -57,7 +57,7 @@ export const routes: Routes = [
         loadComponent:() => import('./home/juegos/preguntados/preguntados.component').then(m=>m.PreguntadosComponent)
     },
     {
-        path:'juegoPropio',
+        path:'laberinto',
         loadComponent:() => import('./home/juegos/juego-propio/juego-propio.component').then(m=>m.JuegoPropioComponent)
     },
     { path: '**', redirectTo: '/login' }

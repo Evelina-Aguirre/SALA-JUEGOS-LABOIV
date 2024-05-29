@@ -93,7 +93,7 @@ export class PreguntadosComponent {
   verificarRespuesta() {
     if (this.respuestaSeleccionada === this.respuestaCorrecta) {
       this.resultado = true;
-      this.mensaje = '\(^▽^)/ Respuesta correcta!';
+      this.mensaje = '\\(^▽^)/ Respuesta correcta!';
       this.contadorGano++;
    
 

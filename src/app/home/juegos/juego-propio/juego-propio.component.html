@@ -1,8 +1,16 @@
 <body>
-    <app-navbar></app-navbar>   
+    <app-navbar></app-navbar>  
     <div class="container"> 
+        <h1>LABERINTO</h1>
+        
+        <div class="laberinto-info">
+            <h3>Tenés 15 segundos para llegar a la salida!</h3>
+            <h2>{{ tiempoTranscurrido/1000 }}</h2>
+        </div>
+        
+        <button class="iniciarJuego" (click)="iniciarJuego()">Iniciar Juego!</button>
 
-        <div class="laberinto" tabindex="0" (keydown)="moverJugador($event)">
+        <div class="laberinto" tabindex="0"  (keydown)="moverJugador($event)">
             <div *ngFor="let fila of laberinto; let x = index" class="fila">
                 <div *ngFor="let celda of fila; let y = index" class="celda" 
                      [ngClass]="{'pasillo': celda === 0, 'pared': celda === 1, 'salida': celda === 2, 
@@ -10,6 +18,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div *ngIf="mensaje !== ''"class="mensajeResultado">
+        <span>{{mensaje}}</span>
+        <button class="continuar" (click)="resultado()">Continuar</button>
     </div>
 </body>
 

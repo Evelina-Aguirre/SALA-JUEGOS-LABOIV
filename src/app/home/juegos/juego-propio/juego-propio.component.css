@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 body {
     /*background-image:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');*/
     /*  background-image:url("../../assets/images/ajedrez.jpg");*/
@@ -8,16 +9,60 @@ body {
     height: 100vh;
     width: 100%;
 }
+
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center; 
     align-items: center; 
     height: 60%;
     width: 40%;
     margin-left: 30%;
     /*background-color: #2600ff;*/
+    
+}
 
-  }
+.laberinto-info{
+    display: flex;
+    flex-direction: column;
+}
+
+h1,h2,h3{
+    color: aliceblue;
+}
+h1{
+    font-size: 40px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+h2{
+    color: #ffffff;
+    align-self: center;
+    background-color: #f80b0b9d;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+h3{
+    font-size: 20px;
+    padding: 5px 15px;
+    background-color: rgba(0, 0, 0, 0.658);
+    color: #fffdfd;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(230, 221, 221, 0.842);
+}
+
+.iniciarJuego{
+    padding: 20px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #003fc7d0;
+    color: white;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
 .laberinto {
     display: flex;
     flex-direction: column;
@@ -49,4 +94,34 @@ body {
 
 .jugador {
     background-color: #2600ff;
+}
+.mensajeResultado{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    background-color: rgba(184, 85, 3, 0.842);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+}
+
+span{
+    margin-top: 20px;
+margin-bottom: 20px;
+}
+.continuar{
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #003fc7d0;
+    color: white;
+    transition: background-color 0.3s ease;
 }

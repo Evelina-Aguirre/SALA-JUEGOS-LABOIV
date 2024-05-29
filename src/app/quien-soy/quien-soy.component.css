@@ -41,6 +41,9 @@ body {
   background-color: #3717e985;
   padding: 20px;
 }
+.descripcion{
+  margin-bottom: 10px;
+}
 
 #carta {
   padding-top: 50px;
