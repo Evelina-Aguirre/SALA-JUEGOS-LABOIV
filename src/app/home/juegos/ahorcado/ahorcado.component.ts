@@ -32,11 +32,11 @@ export class AhorcadoComponent implements AfterViewChecked {
     '../../../../assets/images/intento7b.png',
     '../../../../assets/images/intento8.png'
   ];
+  puntosAcumulados: number = 0;
+  vuelta: number = 0;
   imagenActual: string = this.ahorcadoImagenes[0];
   public letrasPresionadas: string[] = [];
   public terminoJuego: boolean = false;
-  puntosAcumulados: number = 0;
-  vuelta: number = 0;
 
 
   constructor(private router: Router, private cambio: ChangeDetectorRef) {
@@ -46,11 +46,8 @@ export class AhorcadoComponent implements AfterViewChecked {
   }
   ngAfterViewChecked(): void {
     if (this.verificarGano() || this.verificarPerdio()) {
-      this.terminoJuego = true;
       this.vuelta++;
-      if (this.verificarGano()) {
-        this.puntosAcumulados++;
-      }
+      this.terminoJuego = true;
       this.cambio.detectChanges();
     }
   }
@@ -84,7 +81,6 @@ export class AhorcadoComponent implements AfterViewChecked {
 
     for (let i = 0; i < this.palabraActual.length; i++) {
       if (this.palabraActual[i] === letra) {
-        console.log("está en la palabra");
         nuevaPalabraOcultada += letra + ' ';
       } else {
         nuevaPalabraOcultada += this.palabraOcultada[i * 2] + ' ';
@@ -110,7 +106,11 @@ export class AhorcadoComponent implements AfterViewChecked {
   }
 
   gano() {
-    return this.verificarGano();
+    if (this.verificarGano()) {
+      this.puntosAcumulados++;
+      return true;
+    }
+    return false;
   }
 
   perdio() {
@@ -122,9 +122,10 @@ export class AhorcadoComponent implements AfterViewChecked {
     this.inicializarPalabra();
     this.intentos = 0;
     this.imagenActual = this.ahorcadoImagenes[0];
-    this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
+    this.terminoJuego = false;
+   /* this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/ahorcado']);
-    });
+    });*/
 
   }
 

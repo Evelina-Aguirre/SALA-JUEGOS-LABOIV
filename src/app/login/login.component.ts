@@ -72,8 +72,8 @@ export class LoginComponent implements OnInit {
 
   AccesoDirecto() {
     console.log(this.userLogueado);
-    this.userMail = 'a@gmail.com';
-    this.userPWD = '1111111';
+    this.userMail = 'test@gmail.com';
+    this.userPWD = '1234567';
   }
 
   irARegistro() {

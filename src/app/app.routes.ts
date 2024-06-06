@@ -8,10 +8,11 @@ import { JuegosComponent } from './home/juegos/juegos.component';
 import { usuarioLogueadoGGuard } from './guards/usuario-logueado-g.guard';
 import { AhorcadoComponent } from './home/juegos/ahorcado/ahorcado.component';
 import { TecladoVirtualComponent } from './home/juegos/ahorcado/teclado-virtual/teclado-virtual.component';
+import { ErrorComponent } from './error/error.component';
 
 export const routes: Routes = [
 
-    { path: '', redirectTo: '/Login', pathMatch: "full" },
+    { path: '', redirectTo: '/login', pathMatch: "full" },
     {
         path: 'registro',
         loadComponent: () => import('./registro/registro.component').then(m => m.RegistroComponent)
@@ -22,9 +23,9 @@ export const routes: Routes = [
     },
     {
         path: 'chat',
-   component:ChatComponent,
-        canActivate:[usuarioLogueadoGGuard]
-        
+        component: ChatComponent,
+        canActivate: [usuarioLogueadoGGuard]
+
     },
     {
         path: 'juegos',
@@ -39,27 +40,27 @@ export const routes: Routes = [
         loadComponent: () => import('./quien-soy/quien-soy.component').then(m => m.QuienSoyComponent)
     },
     {
-        path:'ahorcado',
-        loadComponent:()=>import('./home/juegos/ahorcado/ahorcado.component').then(m=>m.AhorcadoComponent),
-        children:[
+        path: 'ahorcado',
+        loadComponent: () => import('./home/juegos/ahorcado/ahorcado.component').then(m => m.AhorcadoComponent),
+        children: [
             {
-                path:"teclado",
-                component:TecladoVirtualComponent
+                path: "teclado",
+                component: TecladoVirtualComponent
             }
         ]
     },
     {
-        path:'mayormenor',
-        loadComponent:() => import('./home/juegos/mayormenor/mayormenor.component').then(m=>m.MayormenorComponent)
+        path: 'mayormenor',
+        loadComponent: () => import('./home/juegos/mayormenor/mayormenor.component').then(m => m.MayormenorComponent)
     },
     {
-        path:'preguntados',
-        loadComponent:() => import('./home/juegos/preguntados/preguntados.component').then(m=>m.PreguntadosComponent)
+        path: 'preguntados',
+        loadComponent: () => import('./home/juegos/preguntados/preguntados.component').then(m => m.PreguntadosComponent)
     },
     {
-        path:'laberinto',
-        loadComponent:() => import('./home/juegos/juego-propio/juego-propio.component').then(m=>m.JuegoPropioComponent)
+        path: 'laberinto',
+        loadComponent: () => import('./home/juegos/juego-propio/juego-propio.component').then(m => m.JuegoPropioComponent)
     },
-    { path: '**', redirectTo: '/login' }
-    
+    { path: '**', component: ErrorComponent }
+
 ];
